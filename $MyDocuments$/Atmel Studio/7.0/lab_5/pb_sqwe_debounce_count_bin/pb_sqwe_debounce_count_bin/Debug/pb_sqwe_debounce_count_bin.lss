@@ -1,0 +1,107 @@
+
+AVRASM ver. 2.2.7  E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_5\pb_sqwe_debounce_count_bin\pb_sqwe_debounce_count_bin\main.asm Tue Oct 06 19:14:35 2020
+
+E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_5\pb_sqwe_debounce_count_bin\pb_sqwe_debounce_count_bin\main.asm(9): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m4809def.inc'
+E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_5\pb_sqwe_debounce_count_bin\pb_sqwe_debounce_count_bin\main.asm(9): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m4809def.inc'
+                                 
+                                 
+                                 ; pb_sftwe_debounce_count_bin.asm
+                                 ;
+                                 ; Created: 10/6/2020 5:50:12 PM
+                                 ; Author : hp
+                                 ;
+                                 
+                                 .list
+                                 
+                                 
+                                 ; Replace with your application code
+                                 start:
+000000 e000                      	ldi r16, $00
+000001 ef1f                      	ldi r17, $FF
+000002 bb00                      	out VPORTE_DIR, r16
+000003 b91c                      	out VPORTD_DIR, r17
+000004 b90d                      	out VPORTD_OUT, r16
+000005 e010                      	ldi r17, $00
+000006 e021                      	ldi r18, $01	; delay = 0.1 * r18, set r18 to desired delay
+                                 
+                                 zero_loop:
+000007 b302                      	in r16, VPORTE_IN
+000008 7001                      	andi r16, $01
+000009 3001                      	cpi r16, $01
+00000a f009                      	breq one_loop
+00000b cffb                      	rjmp zero_loop
+                                 
+                                 one_loop:
+00000c b302                      	in r16, VPORTE_IN
+00000d 3000                      	cpi r16, $00
+00000e f009                      	breq outer_loop
+00000f cffc                      	rjmp one_loop
+                                 
+                                 outer_loop:
+000010 e63e                      	ldi r19, 110
+                                 
+                                 inner_loop:
+000011 953a                      	dec r19
+000012 f7f1                      	brne inner_loop
+000013 952a                      	dec r18
+000014 f7d9                      	brne outer_loop
+                                 
+                                 output:
+000015 9510                      	com r17
+000016 b91d                      	out VPORTD_OUT, r17
+000017 9510                      	com r17
+
+
+RESOURCE USE INFORMATION
+------------------------
+
+Notice:
+The register and instruction counts are symbol table hit counts,
+and hence implicitly used resources are not counted, eg, the
+'lpm' instruction without operands implicitly uses r0 and z,
+none of which are counted.
+
+x,y,z are separate entities in the symbol table and are
+counted separately from r26..r31 here.
+
+.dseg memory usage only counts static data declared with .byte
+
+"ATmega4809" register use summary:
+x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
+r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
+r13:   0 r14:   0 r15:   0 r16:   8 r17:   6 r18:   2 r19:   2 r20:   0 
+r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
+r29:   0 r30:   0 r31:   0 
+Registers used: 4 out of 35 (11.4%)
+
+"ATmega4809" instruction use summary:
+.lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
+andi  :   1 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   2 brge  :   0 brhc  :   0 
+brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
+brne  :   2 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
+clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
+clt   :   0 clv   :   0 clz   :   0 com   :   2 cp    :   0 cpc   :   0 
+cpi   :   2 cpse  :   0 dec   :   2 des   :   0 eor   :   0 fmul  :   0 
+fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 in    :   2 inc   :   0 
+jmp   :   0 ld    :   0 ldd   :   0 ldi   :   5 lds   :   0 lpm   :   0 
+lsl   :   0 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 
+mulsu :   0 neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   4 
+pop   :   0 push  :   0 rcall :   0 ret   :   0 reti  :   0 rjmp  :   3 
+rol   :   0 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 
+sbis  :   0 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 
+seh   :   0 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 
+sev   :   0 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 
+sts   :   0 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
+
+Instructions used: 10 out of 114 (8.8%)
+
+"ATmega4809" memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%
+---------------------------------------------------------------
+[.cseg] 0x000000 0x000032     50      0     50   49152   0.1%
+[.dseg] 0x002800 0x002800      0      0      0    6144   0.0%
+[.eseg] 0x000000 0x000000      0      0      0     256   0.0%
+
+Assembly complete, 0 errors, 0 warnings

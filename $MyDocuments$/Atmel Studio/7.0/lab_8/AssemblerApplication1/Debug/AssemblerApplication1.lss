@@ -1,0 +1,216 @@
+
+AVRASM ver. 2.2.7  F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm Wed Oct 28 11:22:53 2020
+
+F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm(27): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m4809def.inc'
+F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm(27): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m4809def.inc'
+                                 
+                                 
+                                 ;*
+                                 ;* Title: Enter Digits
+                                 ;* Author:	Judah Ben-Eliezer
+                                 ;* Version:	1.0
+                                 ;* Last updated:	10/28/2020
+                                 ;* Target:			;ATmega4809 @3.3MHz
+                                 ;*
+                                 ;* DESCRIPTION
+                                 ;* This program polls the flag associated with pushbutton 1. This flag is
+                                 ;* connected to PE0. If the flag is set, the contents of the array bcd_entries
+                                 ;* is shifted left and the BCD digit set on the least significant 4 bits of
+                                 ;* PORTA_IN are stored in the least significant byte of the bcd_entries array.
+                                 ;* Then the corresponding segment values for each digit in the bcd_entries
+                                 ;* display are written into the led_display. Note: entry of a non-BCD value
+                                 ;* is ignored.
+                                 ;*
+                                 ;* This program also continually multiplexes the display so that the digits
+                                 ;* entered are conatantly seen on the display. Before any digits are entered
+                                 ;* the display displays 0000.
+                                 ;*
+                                 ;* VERSION HISTORY
+                                 ;* 1.0 Original version
+                                 ;***************************************************************************
+                                 
+                                 .list
+                                 
+                                 .dseg
+002800                           bcd_entries: .byte 4
+002804                           led_display: .byte 4
+002808                           digit_num: .byte 1
+                                 
+                                 .cseg
+                                 
+                                 start:
+000000 9880                      	cbi VPORTE_DIR, 0
+000001 e000                      	ldi r16, $00
+000002 b900                      	out VPORTA_DIR, r16
+000003 9500                      	com r16
+000004 b90c                      	out VPORTD_DIR, r16
+000005 b908                      	out VPORTC_DIR, r16
+000006 e2b8                      	ldi XH, HIGH(bcd_entries)
+000007 e0a0                      	ldi XL, LOW(bcd_entries)
+000008 e2d8                      	ldi YH, HIGH(led_display)
+000009 e0c4                      	ldi YL, LOW(led_display)
+00000a 9500                      	com r16
+00000b 930d                      	st X+, r16
+00000c 9503                      	inc r16
+00000d 930d                      	st X+, r16
+00000e 9503                      	inc r16
+00000f 930d                      	st X+, r16
+000010 9503                      	inc r16
+000011 930c                      	st X, r16
+                                 
+                                 reset:
+000012 9889                      	cbi VPORTE_OUT, 1
+000013 9a89                      	sbi VPORTE_OUT, 1
+                                 
+                                 main_loop:
+000014 e2b8                      	ldi XH, HIGH(bcd_entries)
+000015 e0a0                      	ldi XL, LOW(bcd_entries)
+000016 9990                      	sbic VPORTE_IN, 0
+000017 d001                      	rcall poll_digit_entry
+000018 cffb                      	rjmp main_loop
+                                 
+                                 poll_digit_entry:
+000019 b102                      	in r16, VPORTA_IN
+00001a e028                      	ldi r18, $08
+                                 
+                                 reverse_bits:
+00001b 9507                      	ror r16
+00001c 1f11                      	rol r17
+00001d 952a                      	dec r18
+00001e f7e1                      	brne reverse_bits
+                                 
+00001f 301a                      	cpi r17, $0A
+000020 f788                      	brsh reset
+000021 e023                      	ldi r18, $03
+                                 shift_bcd_entries:
+000022 e2b8                      	ldi XH, HIGH(bcd_entries)
+000023 e0a0                      	ldi XL, LOW(bcd_entries)
+000024 952a                      	dec r18
+000025 0fa2                      	add XL, r18
+000026 913d                      	ld r19, X+
+000027 933c                      	st X, r19
+000028 f7c9                      	brne shift_bcd_entries
+                                 
+000029 e0a0                      	ldi XL, LOW(bcd_entries)
+00002a e2b8                      	ldi XH, HIGH(bcd_entries)
+00002b 931c                      	st X, r17
+00002c e044                      	ldi r20, $04
+                                 bcd_to_led:
+00002d 954a                      	dec r20
+00002e e2b8                      	ldi XH, HIGH(bcd_entries)
+00002f e0a0                      	ldi XL, LOW(bcd_entries)
+000030 e2d8                      	ldi YH, HIGH(led_display)
+000031 e0c4                      	ldi YL, LOW(led_display)
+000032 0fa4                      	add XL, r20
+000033 0fc4                      	add YL, r20
+000034 912c                      	ld r18, X
+000035 d01d                      	rcall hex_to_7seg
+000036 8328                      	st Y, r18
+000037 3040                      	cpi r20, $00
+000038 f7a1                      	brne bcd_to_led
+                                 
+000039 e060                      	ldi r22, $00
+00003a 9360 2808                 	sts digit_num, r22
+00003c e0c4                      	ldi YL, LOW(led_display)
+                                 multiplex_display:
+00003d 9110 2808                 	lds r17, digit_num
+00003f 9140 2808                 	lds r20, digit_num
+000041 7013                      	andi r17, $03
+000042 0fa1                      	add XL, r17
+000043 8128                      	ld r18, Y
+000044 e850                      	ldi r21, $80
+000045 9543                      	inc r20
+                                 loop:
+000046 9556                      	lsr r21
+000047 954a                      	dec r20
+000048 f7e9                      	brne loop
+                                 
+000049 0f55                      	lsl r21
+00004a 9550                      	com r21
+00004b b959                      	out VPORTC_OUT, r21
+00004c b92d                      	out VPORTD_OUT, r18
+00004d 9889                      	cbi VPORTE_OUT, 1
+00004e 9a89                      	sbi VPORTE_OUT, 1
+00004f 9513                      	inc r17
+000050 9310 2808                 	sts digit_num, r17
+000052 9508                      	ret
+                                 
+                                 
+                                 hex_to_7seg:
+000053 702f                      	andi r18, 0x0F				;clear ms nibble
+000054 e0f0                          ldi ZH, HIGH(hextable * 2)  ;set Z to point to start of table
+000055 ebe6                          ldi ZL, LOW(hextable * 2)
+000056 e000                          ldi r16, $00                ;add offset to Z pointer
+000057 0fe2                          add ZL, r18
+000058 1ff0                          adc ZH, r16
+000059 9124                          lpm r18, Z                  ;load byte from table pointed to by Z
+00005a 9508                      	ret
+                                 
+                                     ;Table of segment values to display digits 0 - F
+                                     ;!!! seven values must be added - verify all values
+00005b 4f01
+00005c 0612
+00005d 244c
+00005e 0f20
+00005f 0400
+000060 6008
+000061 4231
+000062 3830                      hextable: .db $01, $4F, $12, $06, $4C, $24, $20, $0F, $00, $04, $08, $60, $31, $42, $30, $38
+                                 
+                                 	
+                                 	
+
+
+RESOURCE USE INFORMATION
+------------------------
+
+Notice:
+The register and instruction counts are symbol table hit counts,
+and hence implicitly used resources are not counted, eg, the
+'lpm' instruction without operands implicitly uses r0 and z,
+none of which are counted.
+
+x,y,z are separate entities in the symbol table and are
+counted separately from r26..r31 here.
+
+.dseg memory usage only counts static data declared with .byte
+
+"ATmega4809" register use summary:
+x  :   8 y  :   2 z  :   1 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
+r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
+r13:   0 r14:   0 r15:   0 r16:  17 r17:   8 r18:  12 r19:   2 r20:   8 
+r21:   5 r22:   2 r23:   0 r24:   0 r25:   0 r26:   8 r27:   5 r28:   4 
+r29:   2 r30:   2 r31:   2 
+Registers used: 16 out of 35 (45.7%)
+
+"ATmega4809" instruction use summary:
+.lds  :   0 .sts  :   0 adc   :   1 add   :   5 adiw  :   0 and   :   0 
+andi  :   2 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
+brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
+brne  :   4 brpl  :   0 brsh  :   1 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   3 cbr   :   0 
+clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
+clt   :   0 clv   :   0 clz   :   0 com   :   3 cp    :   0 cpc   :   0 
+cpi   :   2 cpse  :   0 dec   :   4 des   :   0 eor   :   0 fmul  :   0 
+fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   5 
+jmp   :   0 ld    :   3 ldd   :   0 ldi   :  24 lds   :   2 lpm   :   2 
+lsl   :   1 lsr   :   1 mov   :   0 movw  :   0 mul   :   0 muls  :   0 
+mulsu :   0 neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   5 
+pop   :   0 push  :   0 rcall :   2 ret   :   2 reti  :   0 rjmp  :   1 
+rol   :   1 ror   :   1 sbc   :   0 sbci  :   0 sbi   :   2 sbic  :   1 
+sbis  :   0 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 
+seh   :   0 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 
+sev   :   0 sez   :   0 sleep :   0 spm   :   0 st    :   7 std   :   0 
+sts   :   2 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
+
+Instructions used: 27 out of 114 (23.7%)
+
+"ATmega4809" memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%
+---------------------------------------------------------------
+[.cseg] 0x000000 0x0000c6    182     16    198   49152   0.4%
+[.dseg] 0x002800 0x002809      0      9      9    6144   0.1%
+[.eseg] 0x000000 0x000000      0      0      0     256   0.0%
+
+Assembly complete, 0 errors, 0 warnings

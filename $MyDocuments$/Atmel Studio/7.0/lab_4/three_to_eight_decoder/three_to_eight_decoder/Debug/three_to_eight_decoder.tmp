@@ -1,0 +1,37 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega4809"</DEVICE>
+ <WORKING_DIR>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\three_to_eight_decoder\three_to_eight_decoder\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\three_to_eight_decoder\three_to_eight_decoder\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m4809def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\three_to_eight_decoder\three_to_eight_decoder\Debug\three_to_eight_decoder.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>three_to_eight_decoder.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>three_to_eight_decoder.map</FILE>
+  <FILE>three_to_eight_decoder.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\three_to_eight_decoder\three_to_eight_decoder\main.asm</FILE><LINE>14</LINE></start>
+  <main><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\three_to_eight_decoder\three_to_eight_decoder\main.asm</FILE><LINE>21</LINE></main>
+  <output><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\three_to_eight_decoder\three_to_eight_decoder\main.asm</FILE><LINE>76</LINE></output>
+  <zero><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\three_to_eight_decoder\three_to_eight_decoder\main.asm</FILE><LINE>51</LINE></zero>
+  <one><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\three_to_eight_decoder\three_to_eight_decoder\main.asm</FILE><LINE>54</LINE></one>
+  <two><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\three_to_eight_decoder\three_to_eight_decoder\main.asm</FILE><LINE>57</LINE></two>
+  <three><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\three_to_eight_decoder\three_to_eight_decoder\main.asm</FILE><LINE>60</LINE></three>
+  <four><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\three_to_eight_decoder\three_to_eight_decoder\main.asm</FILE><LINE>63</LINE></four>
+  <five><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\three_to_eight_decoder\three_to_eight_decoder\main.asm</FILE><LINE>66</LINE></five>
+  <six><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\three_to_eight_decoder\three_to_eight_decoder\main.asm</FILE><LINE>69</LINE></six>
+  <seven><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\three_to_eight_decoder\three_to_eight_decoder\main.asm</FILE><LINE>72</LINE></seven>
+ </LABELS>
+</ASSEMBLER_INFO>

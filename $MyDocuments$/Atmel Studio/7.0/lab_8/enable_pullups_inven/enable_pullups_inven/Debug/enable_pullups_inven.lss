@@ -1,0 +1,4 @@
+
+AVRASM ver. 2.2.7  F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enable_pullups_inven\enable_pullups_inven\main.asm Wed Oct 28 08:35:25 2020
+
+F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enable_pullups_inven\enable_pullups_inven\main.asm(20): error: Cannot find include file: m4809def.inc

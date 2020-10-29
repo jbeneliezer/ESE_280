@@ -1,0 +1,38 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega4809"</DEVICE>
+ <WORKING_DIR>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m4809def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\Debug\enter_digits.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>enter_digits.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>enter_digits.map</FILE>
+  <FILE>enter_digits.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <bcd_entries><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\main.asm</FILE><LINE>31</LINE></bcd_entries>
+  <led_display><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\main.asm</FILE><LINE>32</LINE></led_display>
+  <digit_num><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\main.asm</FILE><LINE>33</LINE></digit_num>
+  <start><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\main.asm</FILE><LINE>37</LINE></start>
+  <main_loop><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\main.asm</FILE><LINE>48</LINE></main_loop>
+  <poll_digit_entry><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\main.asm</FILE><LINE>53</LINE></poll_digit_entry>
+  <shift_bcd_entries><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\main.asm</FILE><LINE>58</LINE></shift_bcd_entries>
+  <bcd_to_led><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\main.asm</FILE><LINE>67</LINE></bcd_to_led>
+  <hex_to_7seg><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\main.asm</FILE><LINE>96</LINE></hex_to_7seg>
+  <multiplex_display><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\main.asm</FILE><LINE>78</LINE></multiplex_display>
+  <loop><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\main.asm</FILE><LINE>85</LINE></loop>
+  <hextable><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enter_digits\enter_digits\main.asm</FILE><LINE>108</LINE></hextable>
+ </LABELS>
+</ASSEMBLER_INFO>

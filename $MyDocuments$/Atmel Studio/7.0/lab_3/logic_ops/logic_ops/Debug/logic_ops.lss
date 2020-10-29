@@ -1,0 +1,5 @@
+
+AVRASM ver. 2.2.7  F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_3\logic_ops\logic_ops\main.asm Wed Sep 16 10:07:39 2020
+
+[builtin](2): error: Cannot find include file: m4809def.inc
+F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_3\logic_ops\logic_ops\main.asm(0): '[builtin]' included form here

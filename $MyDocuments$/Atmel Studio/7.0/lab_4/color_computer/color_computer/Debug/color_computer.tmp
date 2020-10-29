@@ -1,0 +1,28 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega4809"</DEVICE>
+ <WORKING_DIR>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\color_computer\color_computer\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\color_computer\color_computer\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m4809def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\color_computer\color_computer\Debug\color_computer.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>color_computer.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>color_computer.map</FILE>
+  <FILE>color_computer.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\color_computer\color_computer\main.asm</FILE><LINE>14</LINE></start>
+  <main><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_4\color_computer\color_computer\main.asm</FILE><LINE>23</LINE></main>
+ </LABELS>
+</ASSEMBLER_INFO>

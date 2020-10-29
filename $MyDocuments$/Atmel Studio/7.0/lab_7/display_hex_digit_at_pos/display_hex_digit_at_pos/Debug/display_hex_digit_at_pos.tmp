@@ -1,0 +1,35 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega4809"</DEVICE>
+ <WORKING_DIR>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_7\display_hex_digit_at_pos\display_hex_digit_at_pos\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_7\display_hex_digit_at_pos\display_hex_digit_at_pos\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m4809def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_7\display_hex_digit_at_pos\display_hex_digit_at_pos\Debug\display_hex_digit_at_pos.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>display_hex_digit_at_pos.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>display_hex_digit_at_pos.map</FILE>
+  <FILE>display_hex_digit_at_pos.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_7\display_hex_digit_at_pos\display_hex_digit_at_pos\main.asm</FILE><LINE>12</LINE></start>
+  <main_loop><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_7\display_hex_digit_at_pos\display_hex_digit_at_pos\main.asm</FILE><LINE>20</LINE></main_loop>
+  <zero><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_7\display_hex_digit_at_pos\display_hex_digit_at_pos\main.asm</FILE><LINE>36</LINE></zero>
+  <one><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_7\display_hex_digit_at_pos\display_hex_digit_at_pos\main.asm</FILE><LINE>40</LINE></one>
+  <two><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_7\display_hex_digit_at_pos\display_hex_digit_at_pos\main.asm</FILE><LINE>44</LINE></two>
+  <three><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_7\display_hex_digit_at_pos\display_hex_digit_at_pos\main.asm</FILE><LINE>48</LINE></three>
+  <hex_to_7seg><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_7\display_hex_digit_at_pos\display_hex_digit_at_pos\main.asm</FILE><LINE>76</LINE></hex_to_7seg>
+  <hextable><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_7\display_hex_digit_at_pos\display_hex_digit_at_pos\main.asm</FILE><LINE>88</LINE></hextable>
+  <output><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_7\display_hex_digit_at_pos\display_hex_digit_at_pos\main.asm</FILE><LINE>90</LINE></output>
+ </LABELS>
+</ASSEMBLER_INFO>

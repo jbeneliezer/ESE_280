@@ -1,0 +1,33 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega4809"</DEVICE>
+ <WORKING_DIR>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_3\logic_op_1\logic_op_1\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_3\logic_op_1\logic_op_1\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m4809def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_3\logic_op_1\logic_op_1\Debug\logic_op_1.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>logic_op_1.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>logic_op_1.map</FILE>
+  <FILE>logic_op_1.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_3\logic_op_1\logic_op_1\main.asm</FILE><LINE>10</LINE></start>
+  <main_loop><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_3\logic_op_1\logic_op_1\main.asm</FILE><LINE>16</LINE></main_loop>
+  <and_fcn><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_3\logic_op_1\logic_op_1\main.asm</FILE><LINE>38</LINE></and_fcn>
+  <or_fcn><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_3\logic_op_1\logic_op_1\main.asm</FILE><LINE>42</LINE></or_fcn>
+  <xor_fcn><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_3\logic_op_1\logic_op_1\main.asm</FILE><LINE>46</LINE></xor_fcn>
+  <not_fcn><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_3\logic_op_1\logic_op_1\main.asm</FILE><LINE>33</LINE></not_fcn>
+  <output><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_3\logic_op_1\logic_op_1\main.asm</FILE><LINE>49</LINE></output>
+ </LABELS>
+</ASSEMBLER_INFO>

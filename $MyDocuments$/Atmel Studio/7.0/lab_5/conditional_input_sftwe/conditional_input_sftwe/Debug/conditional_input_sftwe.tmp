@@ -1,0 +1,31 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega4809"</DEVICE>
+ <WORKING_DIR>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_5\conditional_input_sftwe\conditional_input_sftwe\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_5\conditional_input_sftwe\conditional_input_sftwe\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m4809def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_5\conditional_input_sftwe\conditional_input_sftwe\Debug\conditional_input_sftwe.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>conditional_input_sftwe.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>conditional_input_sftwe.map</FILE>
+  <FILE>conditional_input_sftwe.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_5\conditional_input_sftwe\conditional_input_sftwe\main.asm</FILE><LINE>14</LINE></start>
+  <check_flag><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_5\conditional_input_sftwe\conditional_input_sftwe\main.asm</FILE><LINE>24</LINE></check_flag>
+  <outer_loop><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_5\conditional_input_sftwe\conditional_input_sftwe\main.asm</FILE><LINE>33</LINE></outer_loop>
+  <inner_loop><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_5\conditional_input_sftwe\conditional_input_sftwe\main.asm</FILE><LINE>36</LINE></inner_loop>
+  <sw_led_io><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_5\conditional_input_sftwe\conditional_input_sftwe\main.asm</FILE><LINE>42</LINE></sw_led_io>
+ </LABELS>
+</ASSEMBLER_INFO>

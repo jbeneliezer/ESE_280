@@ -1,0 +1,28 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega4809"</DEVICE>
+ <WORKING_DIR>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enable_pullups\enable_pullups\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enable_pullups\enable_pullups\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m4809def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enable_pullups\enable_pullups\Debug\enable_pullups.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>enable_pullups.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>enable_pullups.map</FILE>
+  <FILE>enable_pullups.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enable_pullups\enable_pullups\main.asm</FILE><LINE>25</LINE></start>
+  <main_loop><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\enable_pullups\enable_pullups\main.asm</FILE><LINE>32</LINE></main_loop>
+ </LABELS>
+</ASSEMBLER_INFO>

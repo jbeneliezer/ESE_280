@@ -44,11 +44,13 @@ digit_num: .byte 1
 hex_results: .byte 4
 
 .cseg
+
+.org PORTE_PORT_vect
+	jmp porte_isr		;vector for all PORTE pin change IRQs
+
 start:
 	cbi VPORTE_DIR, 0
-	sbi VPORTE_DIR, 1
 	cbi VPORTE_DIR, 2
-	sbi VPORTE_DIR, 3
 	ldi r16, $00
 	out VPORTA_DIR, r16
 	com r16
@@ -60,80 +62,57 @@ start:
 	ldi YL, LOW(led_display)
 	com r16
 	st X+, r16
-	inc r16
 	st X+, r16
-	inc r16
 	st X+, r16
-	inc r16
 	st X, r16
-	cbi VPORTE_OUT, 1
-	sbi VPORTE_OUT, 1
-	cbi VPORTE_OUT, 3
-	sbi VPORTE_OUT, 3
+
+	;Configure interrupts
+	lds r16, PORTE_PIN0CTRL	;set ISC for PE0 to pos. edge
+	ori r16, 0x02		;set ISC for rising edge
+	sts PORTE_PIN0CTRL, r16
+
+	lds r16, PORTE_PIN2CTRL	;set ISC for PE2 to pos. edge
+	ori r16, 0x02		;set ISC for rising edge
+	sts PORTE_PIN2CTRL, r16
+
+	sei			;enable global interrupts
 
 main_loop:
 	rcall multiplex_display
 	rcall mux_digit_delay
-	rcall poll_digit_entry
-	rcall poll_bcd_hex
 	rjmp main_loop
 
+;Interrupt service routine for any PORTE pin change IRQ
+porte_ISR:
+	push r16		;save r16 then SREG
+	in r16, CPU_SREG
+	push r16
+	cli				;clear global interrupt enable
+
+	;Determine which pins of PORTE have IRQs
+	lds r16, PORTE_INTFLAGS	;check for PE0 IRQ flag set
+	sbrc r16, 0
+	rcall pb1_sub
+	
+
+	lds r16, PORTE_INTFLAGS	;check for PE2 IRQ flag set
+	sbrc r16, 2
+	rcall pb2_sub
+	
+
+	pop r16			;restore SREG then r16
+	out CPU_SREG, r16
+	pop r16
+	reti			;return from PORTE pin change ISR
 
 ;***************************************************************************
 ;* 
-;* "poll_digit_entry" - Polls Pushbutton 1 for Conditional Digit Entry
+;* "mux_digit_delay" - title
 ;*
-;* Description:
-;* Polls the flag associated with pushbutton 1. This flag is connected to
-;* PE0. If the flag is set, the contents of the array bcd_entries is shifted
-;* left and the BCD digit set on the least significant 4 bits of PORTA_IN are 
-;* stored in the least significant byte of the bcd_entries array. Then the
-;* corresponding segment values for each digit in the bcd_entries display are
-;* written into the led_display. Note: entry of a non-BCD value is ignored.
-;* Author:
-;* Version:
-;* Last updated:
-;* Target:
-;* Number of words:
-;* Number of cycles:
-;* Low registers modified:
-;* High registers modified:
+;* Description: delays 0.1 * r23
 ;*
-;* Parameters: 
-;* Returns:
-;*
-;* Notes: 
-;*
-;***************************************************************************
-poll_digit_entry:
-	ldi XH, HIGH(bcd_entries)
-	ldi XL, LOW(bcd_entries)
-	sbis VPORTE_IN, 0
-	ret
-	in r16, VPORTA_IN
-	rcall reverse_bits
-	rcall check_for_non_bcd
-	rcall shift_bcd_entries
-	rcall bcd_to_led
-	cbi VPORTE_OUT, 1
-	sbi VPORTE_OUT, 1
-	ret
-
-;***************************************************************************
-;* 
-;* "poll_bcd_hex" - Polls Pushbutton 2 for Conditional Conversion of BCD to
-;* Hex.
-;*
-;* Description:
-;* Polls the flag associated with pushbutton 2. This flag is connected to
-;* PE2. If the flag is set, the digits in the bcd_entries array are read
-;* and passed to the prewritten subroutine BCD2bin16. This subroutine
-;* performs a BCD to binary conversion. The binary result is partitioned
-;* into hexadecimal and placed into the array hex_results. The contents of
-;* the hex_results array is converted to seven segment values and placed
-;* into the led_display array.
-;* Author:
-;* Version:
+;* Author:	Judah Ben-Eliezer
+;* Version:	1.0
 ;* Last updated:
 ;* Target:
 ;* Number of words:
@@ -147,9 +126,51 @@ poll_digit_entry:
 ;* Notes: 
 ;*
 ;***************************************************************************
-poll_bcd_hex:
-	sbis VPORTE_IN, 2
+mux_digit_delay:
+	ldi r23, $08 ; 0.1 * r23 = delay
+outer_loop:
+	ldi r24, $06
+inner_loop:
+	dec r24
+	brne inner_loop
+	dec r23
+	brne outer_loop
 	ret
+
+
+;***************************************************************************
+;* 
+;* "reverse_bits" - Reverse Bits
+;*
+;* Description: Reverses the bit positions in a byte passed in. Bit 0
+;* becomes bit 7, bit 6 becomes bit 1, and so on.
+;*
+;* Author:					Judah Ben-Eliezer
+;* Version:					1.0
+;* Last updated:			101120
+;* Target:					ATmega4809
+;* Number of words:			8
+;* Number of cycles:
+;* Low registers modified:	r16, r17, r18
+;* High registers modified:	none
+;*
+;* Parameters: r16: byte to be reversed.
+;* Returns: r16: reversed byte
+;*
+;* Notes: 
+;*
+;***************************************************************************
+
+pb1_sub:
+	rcall reverse_bits
+	rcall check_for_non_bcd
+	rcall shift_bcd_entries
+	rcall bcd_to_led
+	ldi r16, PORT_INT0_bm	;clear IRQ flag for PE0
+	sts PORTE_INTFLAGS, r16
+	ret
+
+pb2_sub:
 	ldi XH, HIGH(bcd_entries)
 	ldi XL, LOW(bcd_entries)
 	ldi r18, $00
@@ -210,66 +231,10 @@ poll_bcd_hex:
 	andi r18, $0F
 	rcall hex_to_7seg
 	st X+, r18
-	cbi VPORTE_OUT, 3
-	sbi VPORTE_OUT, 3
+	ldi r16, PORT_INT2_bm	;clear IRQ flag for PE2
+	sts PORTE_INTFLAGS, r16
 	ret
-
-
-;***************************************************************************
-;* 
-;* "mux_digit_delay" - title
-;*
-;* Description: delays 0.1 * r23
-;*
-;* Author:	Judah Ben-Eliezer
-;* Version:	1.0
-;* Last updated:
-;* Target:
-;* Number of words:
-;* Number of cycles:
-;* Low registers modified:
-;* High registers modified:
-;*
-;* Parameters:
-;* Returns:
-;*
-;* Notes: 
-;*
-;***************************************************************************
-mux_digit_delay:
-	ldi r23, $08 ; 0.1 * r23 = delay
-outer_loop:
-	ldi r24, $06
-inner_loop:
-	dec r24
-	brne inner_loop
-	dec r23
-	brne outer_loop
-	ret
-
-
-;***************************************************************************
-;* 
-;* "reverse_bits" - Reverse Bits
-;*
-;* Description: Reverses the bit positions in a byte passed in. Bit 0
-;* becomes bit 7, bit 6 becomes bit 1, and so on.
-;*
-;* Author:					Judah Ben-Eliezer
-;* Version:					1.0
-;* Last updated:			101120
-;* Target:					ATmega4809
-;* Number of words:			8
-;* Number of cycles:
-;* Low registers modified:	r16, r17, r18
-;* High registers modified:	none
-;*
-;* Parameters: r16: byte to be reversed.
-;* Returns: r16: reversed byte
-;*
-;* Notes: 
-;*
-;***************************************************************************
+	
 reverse_bits:
 	ldi r18, $08
 loop_8:
@@ -281,13 +246,8 @@ loop_8:
 
 check_for_non_bcd:
 	cpi r17, $0A
-	brsh reset
+	reti
 	ret
-
-reset:
-	cbi VPORTE_OUT, 1
-	sbi VPORTE_OUT, 1
-	rjmp main_loop
 
 shift_bcd_entries:
 	ldi r18, $03

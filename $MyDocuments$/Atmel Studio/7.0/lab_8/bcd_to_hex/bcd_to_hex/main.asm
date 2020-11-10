@@ -46,9 +46,6 @@ hex_results: .byte 4
 .cseg
 start:
 	cbi VPORTE_DIR, 0
-	sbi VPORTE_DIR, 1
-	cbi VPORTE_DIR, 2
-	sbi VPORTE_DIR, 3
 	ldi r16, $00
 	out VPORTA_DIR, r16
 	com r16
@@ -68,8 +65,6 @@ start:
 	st X, r16
 	cbi VPORTE_OUT, 1
 	sbi VPORTE_OUT, 1
-	cbi VPORTE_OUT, 3
-	sbi VPORTE_OUT, 3
 
 main_loop:
 	rcall multiplex_display
@@ -109,15 +104,12 @@ poll_digit_entry:
 	ldi XH, HIGH(bcd_entries)
 	ldi XL, LOW(bcd_entries)
 	sbis VPORTE_IN, 0
-	ret
+	rjmp poll_digit_entry
 	in r16, VPORTA_IN
 	rcall reverse_bits
 	rcall check_for_non_bcd
 	rcall shift_bcd_entries
 	rcall bcd_to_led
-	cbi VPORTE_OUT, 1
-	sbi VPORTE_OUT, 1
-	ret
 
 ;***************************************************************************
 ;* 
@@ -152,66 +144,34 @@ poll_bcd_hex:
 	ret
 	ldi XH, HIGH(bcd_entries)
 	ldi XL, LOW(bcd_entries)
-	ldi r18, $00
+	ld r18, X+
 	ld r17, X+
 	swap r17
 	ld r19, X+
 	or r17, r19
 	ld r16, X+
 	swap r16
-	ld r19, X
+	ld r19, X+
 	or r16, r19
 	rcall BCD2bin16
-
-	;load_to_hex_results
 	ldi XH, HIGH(hex_results)
 	ldi XL, LOW(hex_results)
 	ldi r19, $00
-	or r19, tbinH
+	or r19, r15
 	andi r19, $F0
 	swap r19
 	st X+, r19
+	lds r20, r15
+	lds r21, r14
+	andi r20, $0F
+	st X+, r20
 	ldi r19, $00
-	or r19, tbinH
-	andi r19, $0F 
-	st X+, r19
-	ldi r19, $00
-	or r19, tbinL
+	or r19, r21
 	andi r19, $F0
 	swap r19
 	st X+, r19
-	ldi r19, $00
-	or r19, tbinL
-	andi r19, $0F
-	st X+, r19
-
-	;load to led_display
-	ldi XH, HIGH(led_display)
-	ldi XL, LOW(led_display)
-	ldi r18, $00
-	or r18, tbinH
-	andi r18, $F0
-	swap r18
-	rcall hex_to_7seg
-	st X+, r18
-	ldi r18, $00
-	or r18, tbinH
-	andi r18, $0F 
-	rcall hex_to_7seg
-	st X+, r18
-	ldi r18, $00
-	or r18, tbinL
-	andi r18, $F0
-	swap r18
-	rcall hex_to_7seg
-	st X+, r18
-	ldi r18, $00
-	or r18, tbinL
-	andi r18, $0F
-	rcall hex_to_7seg
-	st X+, r18
-	cbi VPORTE_OUT, 3
-	sbi VPORTE_OUT, 3
+	andi r21, $0F
+	st X, r21
 	ret
 
 
@@ -287,7 +247,7 @@ check_for_non_bcd:
 reset:
 	cbi VPORTE_OUT, 1
 	sbi VPORTE_OUT, 1
-	rjmp main_loop
+	ret
 
 shift_bcd_entries:
 	ldi r18, $03
@@ -322,15 +282,13 @@ conversion_loop:
 	ret
 
 multiplex_display:
-	ldi r22, $04
-	ldi r23, $00
-	sts digit_num, r23
-loop_4:
+	ldi r22, $00
+	sts digit_num, r22
 	ldi YL, LOW(led_display)
 	lds r17, digit_num
 	lds r20, digit_num
 	andi r17, $03
-	add YL, r17
+	add XL, r17
 	ld r18, Y
 	ldi r21, $80
 	inc r20
@@ -342,10 +300,10 @@ loop:
 	com r21
 	out VPORTC_OUT, r21
 	out VPORTD_OUT, r18
+	cbi VPORTE_OUT, 1
+	sbi VPORTE_OUT, 1
 	inc r17
 	sts digit_num, r17
-	dec r22
-	brne loop_4
 	ret
 
 ;***************************************************************************

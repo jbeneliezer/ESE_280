@@ -22,19 +22,33 @@
   <FILE>AssemblerApplication1.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <bcd_entries><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>31</LINE></bcd_entries>
-  <led_display><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>32</LINE></led_display>
-  <digit_num><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>33</LINE></digit_num>
-  <start><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>37</LINE></start>
-  <reset><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>57</LINE></reset>
-  <main_loop><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>61</LINE></main_loop>
-  <poll_digit_entry><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>68</LINE></poll_digit_entry>
-  <reverse_bits><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>72</LINE></reverse_bits>
-  <shift_bcd_entries><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>81</LINE></shift_bcd_entries>
-  <bcd_to_led><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>94</LINE></bcd_to_led>
-  <hex_to_7seg><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>135</LINE></hex_to_7seg>
-  <multiplex_display><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>111</LINE></multiplex_display>
-  <loop><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>119</LINE></loop>
-  <hextable><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>147</LINE></hextable>
+  <bcd_entries><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>41</LINE></bcd_entries>
+  <led_display><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>42</LINE></led_display>
+  <digit_num><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>43</LINE></digit_num>
+  <hex_results><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>44</LINE></hex_results>
+  <start><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>47</LINE></start>
+  <main_loop><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>74</LINE></main_loop>
+  <multiplex_display><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>324</LINE></multiplex_display>
+  <mux_digit_delay><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>239</LINE></mux_digit_delay>
+  <poll_digit_entry><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>108</LINE></poll_digit_entry>
+  <poll_bcd_hex><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>150</LINE></poll_bcd_hex>
+  <reverse_bits><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>273</LINE></reverse_bits>
+  <check_for_non_bcd><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>282</LINE></check_for_non_bcd>
+  <shift_bcd_entries><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>292</LINE></shift_bcd_entries>
+  <bcd_to_led><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>304</LINE></bcd_to_led>
+  <BCD2bin16><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>412</LINE></BCD2bin16>
+  <hex_to_7seg><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>452</LINE></hex_to_7seg>
+  <outer_loop><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>241</LINE></outer_loop>
+  <inner_loop><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>243</LINE></inner_loop>
+  <loop_8><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>275</LINE></loop_8>
+  <reset><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>287</LINE></reset>
+  <shift_loop><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>294</LINE></shift_loop>
+  <conversion_loop><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>309</LINE></conversion_loop>
+  <loop_4><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>328</LINE></loop_4>
+  <loop><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>337</LINE></loop>
+  <mul10a><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>381</LINE></mul10a>
+  <mul10b><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>383</LINE></mul10b>
+  <m10_1><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>400</LINE></m10_1>
+  <hextable><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm</FILE><LINE>464</LINE></hextable>
  </LABELS>
 </ASSEMBLER_INFO>

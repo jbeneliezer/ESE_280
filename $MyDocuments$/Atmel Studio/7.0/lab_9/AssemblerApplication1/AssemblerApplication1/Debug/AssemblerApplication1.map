@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_8\AssemblerApplication1\main.asm Wed Nov 04 10:38:13 2020
+AVRASM ver. 2.2.7  F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_9\AssemblerApplication1\AssemblerApplication1\main.asm Wed Nov 04 11:29:01 2020
 
 
 EQU  SIGNATURE_000 0000001e
@@ -3188,37 +3188,37 @@ DSEG bcd_entries  00002800
 DSEG led_display  00002804
 DSEG digit_num    00002808
 DSEG hex_results  00002809
-CSEG start        00000000
-CSEG main_loop    00000019
-CSEG multiplex_display 00000094
-CSEG mux_digit_delay 00000067
-CSEG poll_digit_entry 0000001e
-CSEG poll_bcd_hex 0000002a
-CSEG reverse_bits 0000006e
-CSEG check_for_non_bcd 00000074
-CSEG shift_bcd_entries 0000007a
-CSEG bcd_to_led   00000083
-CSEG BCD2bin16    000000c1
+CSEG porte_isr    00000068
+CSEG start        00000048
+CSEG main_loop    00000065
+CSEG multiplex_display 000000e6
+CSEG mux_digit_delay 00000078
+CSEG pb1_sub      0000007f
+CSEG pb2_sub      00000087
+CSEG outer_loop   00000079
+CSEG inner_loop   0000007a
+CSEG reverse_bits 000000c3
+CSEG check_for_non_bcd 000000c9
+CSEG shift_bcd_entries 000000cc
+CSEG bcd_to_led   000000d5
+CSEG BCD2bin16    00000113
 DEF  tbinH        r15
 DEF  tbinL        r14
-CSEG hex_to_7seg  000000cd
-CSEG outer_loop   00000068
-CSEG inner_loop   00000069
-CSEG loop_8       0000006f
-CSEG reset        00000077
-CSEG shift_loop   0000007b
-CSEG conversion_loop 00000087
-CSEG loop_4       00000098
-CSEG loop         000000a2
+CSEG hex_to_7seg  0000011f
+CSEG loop_8       000000c4
+CSEG shift_loop   000000cd
+CSEG conversion_loop 000000d9
+CSEG loop_4       000000ea
+CSEG loop         000000f4
 DEF  copyL        r12
 DEF  copyH        r13
 DEF  mp10L        r14
 DEF  mp10H        r15
 DEF  adder        r19
-CSEG mul10a       000000af
-CSEG mul10b       000000b0
-CSEG m10_1        000000c0
+CSEG mul10a       00000101
+CSEG mul10b       00000102
+CSEG m10_1        00000112
 DEF  fBCD0        r16
 DEF  fBCD1        r17
 DEF  fBCD2        r18
-CSEG hextable     000000d5
+CSEG hextable     00000127

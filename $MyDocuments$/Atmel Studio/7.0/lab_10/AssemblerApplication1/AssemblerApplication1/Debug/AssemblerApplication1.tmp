@@ -1,0 +1,52 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega4809"</DEVICE>
+ <WORKING_DIR>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m4809def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\Debug\AssemblerApplication1.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplication1.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplication1.map</FILE>
+  <FILE>AssemblerApplication1.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <bcd_entries><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>43</LINE></bcd_entries>
+  <led_display><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>44</LINE></led_display>
+  <digit_num><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>45</LINE></digit_num>
+  <hex_results><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>46</LINE></hex_results>
+  <reset><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>50</LINE></reset>
+  <start><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>59</LINE></start>
+  <mux_display_ISR><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>140</LINE></mux_display_ISR>
+  <porte_ISR><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>113</LINE></porte_ISR>
+  <main_loop><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>108</LINE></main_loop>
+  <PB1_sub><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>155</LINE></PB1_sub>
+  <PB2_sub><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>171</LINE></PB2_sub>
+  <multiplex_display><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>345</LINE></multiplex_display>
+  <reverse_bits><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>259</LINE></reverse_bits>
+  <non_bcd><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>168</LINE></non_bcd>
+  <shift_bcd_entries><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>268</LINE></shift_bcd_entries>
+  <bcd_to_led><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>302</LINE></bcd_to_led>
+  <BCD2bin16><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>427</LINE></BCD2bin16>
+  <hex_to_7seg><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>467</LINE></hex_to_7seg>
+  <loop_8><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>261</LINE></loop_8>
+  <shift_loop><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>270</LINE></shift_loop>
+  <conversion_loop><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>307</LINE></conversion_loop>
+  <loop><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>354</LINE></loop>
+  <mul10a><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>396</LINE></mul10a>
+  <mul10b><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>398</LINE></mul10b>
+  <m10_1><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>415</LINE></m10_1>
+  <hextable><FILE>F:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_10\AssemblerApplication1\AssemblerApplication1\main.asm</FILE><LINE>479</LINE></hextable>
+ </LABELS>
+</ASSEMBLER_INFO>

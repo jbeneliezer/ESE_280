@@ -1,0 +1,182 @@
+
+AVRASM ver. 2.2.7  E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\post_display\post_display\main.asm Tue Nov 17 11:36:27 2020
+
+E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\post_display\post_display\main.asm(12): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m4809def.inc'
+E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\post_display\post_display\main.asm(12): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m4809def.inc'
+                                 
+                                 
+                                 ; post_display.asm
+                                 ;
+                                 ; Created: 11/17/2020 11:13:12 AM
+                                 ; Author : hp
+                                 ;
+                                 
+                                 
+                                 ; Replace with your application code
+                                 
+                                 .list
+                                 
+                                 .equ PERIOD_EXAMPLE_VALUE = 25
+                                 
+                                 reset:
+000000 940c 0010                 	jmp start
+                                 
+                                 .org TCA0_OVF_vect
+00000e 940c 002e                 	jmp toggle_pins_ISR
+                                 
+                                 start:
+                                 	;configure PORTC and PORTD and output FF to both
+000010 ef0f                      	ldi r16, $FF
+000011 b90c                      	out VPORTD_DIR, r16
+000012 b908                      	out VPORTC_DIR, r16
+000013 b90d                      	out VPORTD_OUT, r16
+000014 b909                      	out VPORTC_OUT, r16
+                                 	
+                                 	;configure TCA0
+000015 e000                      	ldi r16, TCA_SINGLE_WGMODE_NORMAL_gc	;WGMODE normal
+000016 9300 0a01                 	sts TCA0_SINGLE_CTRLB, r16
+                                 
+                                 	;enable overflow interrupt
+000018 e001                      	ldi r16, TCA_SINGLE_OVF_bm
+000019 9300 0a0a                 	sts TCA0_SINGLE_INTCTRL, r16
+                                 
+                                 	;load period low byte then high byte
+00001b e109                      	ldi r16, LOW(PERIOD_EXAMPLE_VALUE)
+00001c 9300 0a26                 	sts TCA0_SINGLE_PER, r16
+00001e e000                      	ldi r16, HIGH(PERIOD_EXAMPLE_VALUE)
+00001f 9300 0a27                 	sts TCA0_SINGLE_PER + 1, r16
+                                 
+                                 	;set clock and start timer
+000021 e00d                      	ldi r16, TCA_SINGLE_CLKSEL_DIV256_gc | TCA_SINGLE_ENABLE_bm
+000022 9300 0a00                 	sts TCA0_SINGLE_CTRLA, r16
+                                 
+000024 e000                      	ldi r16, $00
+000025 b90d                      	out VPORTD_OUT, r16
+                                 
+000026 9478                      	sei		;enable global interrupts
+                                 
+                                 
+                                 ;***************************************************************************
+                                 ;* 
+                                 ;* "post_display"
+                                 ;*
+                                 ;* Description: toggles value for all PORTC pins.  Since PORTC is used to multiplex the led display, this will
+                                 ;*	turn the LED display on and off
+                                 ;* Author:	Judah Ben-Eliezer
+                                 ;* Version:	1.0
+                                 ;* Last updated:	11/17
+                                 ;* Target:	ATmega4809
+                                 ;* Number of words:	13
+                                 ;* Number of cycles:	6
+                                 ;* Low registers modified:	
+                                 ;* High registers modified:
+                                 ;* Parameters:	none
+                                 ;* Returns:		none
+                                 ;*
+                                 ;* Notes: 
+                                 ;*
+                                 ;***************************************************************************
+                                 post_display:
+000027 ef1f                      	ldi r17, $FF
+000028 b109                      	in r16, VPORTC_OUT
+000029 2701                      	eor r16, r17
+00002a b909                      	out VPORTC_OUT, r16
+00002b 9508                      	ret
+                                 
+                                 main_loop:
+00002c 0000                      	nop
+00002d cffe                      	rjmp main_loop
+                                 
+                                 ;***************************************************************************
+                                 ;* 
+                                 ;* "toggle_pins_ISR" - title
+                                 ;*
+                                 ;* Description:		ISR to toggle PORTC pins, called whenever timing buffer TCA0 overflows
+                                 ;*
+                                 ;* Author:	Judah Ben-Eliezer
+                                 ;* Version:	1.0
+                                 ;* Last updated:	11/17/2020
+                                 ;* Target:	ATmega4809
+                                 ;* Number of words:	27
+                                 ;* Number of cycles:	12
+                                 ;* Low registers modified:
+                                 ;* High registers modified:
+                                 ;*
+                                 ;* Parameters:	none
+                                 ;* Returns:	none
+                                 ;*
+                                 ;* Notes: 
+                                 ;*
+                                 ;***************************************************************************
+                                 toggle_pins_ISR:
+00002e 930f                      	push r16
+00002f b70f                      	in r16, CPU_SREG
+000030 930f                      	push r16
+000031 931f                      	push r17
+                                 
+000032 dff4                      	rcall post_display	;call subroutine to toggle display
+                                 
+000033 e001                      	ldi r16, TCA_SINGLE_OVF_bm	;clear OVF flag
+000034 9300 0a0b                 	sts TCA0_SINGLE_INTFLAGS, r16
+                                 
+000036 911f                      	pop r17
+000037 910f                      	pop r16
+000038 bf0f                      	out CPU_SREG, r16
+000039 910f                      	pop r16
+                                 	
+00003a 9518                      	reti
+
+
+RESOURCE USE INFORMATION
+------------------------
+
+Notice:
+The register and instruction counts are symbol table hit counts,
+and hence implicitly used resources are not counted, eg, the
+'lpm' instruction without operands implicitly uses r0 and z,
+none of which are counted.
+
+x,y,z are separate entities in the symbol table and are
+counted separately from r26..r31 here.
+
+.dseg memory usage only counts static data declared with .byte
+
+"ATmega4809" register use summary:
+x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
+r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
+r13:   0 r14:   0 r15:   0 r16:  28 r17:   4 r18:   0 r19:   0 r20:   0 
+r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
+r29:   0 r30:   0 r31:   0 
+Registers used: 2 out of 35 (5.7%)
+
+"ATmega4809" instruction use summary:
+.lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
+andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
+brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
+brne  :   0 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
+clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
+clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
+cpi   :   0 cpse  :   0 dec   :   0 des   :   0 eor   :   1 fmul  :   0 
+fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 in    :   2 inc   :   0 
+jmp   :   2 ld    :   0 ldd   :   0 ldi   :   9 lds   :   0 lpm   :   0 
+lsl   :   0 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 
+mulsu :   0 neg   :   0 nop   :   1 or    :   0 ori   :   0 out   :   7 
+pop   :   3 push  :   3 rcall :   1 ret   :   1 reti  :   1 rjmp  :   1 
+rol   :   0 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 
+sbis  :   0 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 
+seh   :   0 sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 
+sev   :   0 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 
+sts   :   6 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
+
+Instructions used: 14 out of 114 (12.3%)
+
+"ATmega4809" memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%
+---------------------------------------------------------------
+[.cseg] 0x000000 0x000076     94      0     94   49152   0.2%
+[.dseg] 0x002800 0x002800      0      0      0    6144   0.0%
+[.eseg] 0x000000 0x000000      0      0      0     256   0.0%
+
+Assembly complete, 0 errors, 0 warnings

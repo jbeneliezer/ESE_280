@@ -1,0 +1,42 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega4809"</DEVICE>
+ <WORKING_DIR>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m4809def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\Debug\ADC_sgnl_conv.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>ADC_sgnl_conv.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>ADC_sgnl_conv.map</FILE>
+  <FILE>ADC_sgnl_conv.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <led_display><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>15</LINE></led_display>
+  <digit_num><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>16</LINE></digit_num>
+  <reset><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>21</LINE></reset>
+  <start><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>27</LINE></start>
+  <post_display_ISR><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>99</LINE></post_display_ISR>
+  <wait_for_post><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>121</LINE></wait_for_post>
+  <main_loop><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>125</LINE></main_loop>
+  <multiplex_display><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>190</LINE></multiplex_display>
+  <mux_digit_delay><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>233</LINE></mux_digit_delay>
+  <read><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>154</LINE></read>
+  <bin16_to_led><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>266</LINE></bin16_to_led>
+  <loop><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>200</LINE></loop>
+  <outer_loop><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>235</LINE></outer_loop>
+  <inner_loop><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>237</LINE></inner_loop>
+  <hex_to_7seg><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>313</LINE></hex_to_7seg>
+  <hextable><FILE>E:\ESE_280\$MyDocuments$\Atmel Studio\7.0\lab_11\ADC_sgnl_conv\ADC_sgnl_conv\main.asm</FILE><LINE>325</LINE></hextable>
+ </LABELS>
+</ASSEMBLER_INFO>
